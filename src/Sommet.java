@@ -52,5 +52,62 @@ public class Sommet {
 		listSuccesseurs.remove(index);
 		listCapacite.remove(index);
 	}
+	
+	public String getNom(){
+		/*Permet de récupérer le nom d'un sommet*/
+		return nom; /*faut il utiliser "this.nom" ?*/
+	}
 		
+	public ArrayList<Sommet> getSuccesseurs(){
+		/*Permet de récupérer la liste des successeurs d'un sommet donné*/
+		return listSuccesseurs;
+	}
+	
+	public ArrayList<Integer> getCapacites(){
+		/*Permet de récupérer la liste des successeurs d'un sommet donné*/
+		return listCapacite;
+	}
+	
+	public Integer getCapacites(Integer index){
+		/*Permet de récupérer la capacité associé à un sommet d'index donné*/
+		return listCapacite.get(index);
+	}
+	
+	public Boolean verifSuccesseurs(String nom){
+		/*Permet de vérifier l'existence d'un successeur donné*/
+		Boolean bool = false ;
+			for (Integer i1 = 0 ; i1 < listSuccesseurs.size() && bool == false; i1++){
+				if (listSuccesseurs.get(i1).nom == nom) {
+				/*question : faudrait-il utiliser un getNom() même si on est bien dans la classe Sommet dont "nom" est un attribut ? */
+				/*faut-il utiliser equals() plutôt que == ?*/
+				bool = true ;
+				}
+			}
+		return bool ;
+	}	
+	
+	public Integer getCapacites(Sommet s){
+		/*Permet de récupérer la capacité associée à un sommet donné, on vérifie d'abort que ce sommet est bien un successeur*/
+		if(this.verifSuccesseurs(s.nom)){
+			Integer index=listSuccesseurs.indexOf(s);
+			return listCapacite.get(index);
+		}
+		else{
+			System.out.println("Le sommet passé en argument n'est pas un successeur, pas de capacité associée") ;
+			return 0 ;
+		}
+	}	
+	
+	public void setCapacites(Sommet s, Integer c){
+		/*Permet de passer la capacité associée à un sommet donné à une valeur "c", on vérifie d'abort que ce sommet est bien un successeur*/
+		if(this.verifSuccesseurs(s.nom)){
+			Integer index=listSuccesseurs.indexOf(s);
+			listCapacite.set(index, c);
+		}
+		else{
+			System.out.println("Le sommet passé en argument n'est pas un successeur, pas de capacité associée") ;
+		}
+		
+	}
+	
 }
