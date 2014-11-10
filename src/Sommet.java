@@ -63,8 +63,17 @@ public class Sommet {
 		return listSuccesseurs;
 	}
 	
+	public String[] getStringSuccesseurs(){
+		/*Permet de récupérer la liste des successeurs d'un sommet donné */
+		String[] liste = new String[listSuccesseurs.size()] ;
+		for (Integer i = 0; i < listSuccesseurs.size(); i++){
+			liste[i] = listSuccesseurs.get(i).getNom();
+		}
+		return liste ;
+	}
+	
 	public ArrayList<Integer> getCapacites(){
-		/*Permet de récupérer la liste des successeurs d'un sommet donné*/
+		/*Permet de récupérer la liste des capacités des successeurs d'un sommet donné*/
 		return listCapacite;
 	}
 	
