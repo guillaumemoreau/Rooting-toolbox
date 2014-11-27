@@ -38,11 +38,18 @@ public class Test {
 		g.addSommets(s6);
 		
 		/*Tests sur les méthodes de la classe Sommet*/
-		System.out.println("La commande s1.getNom() donne : "+s1.getNom());
-		System.out.println("La commande s1.getSuccesseurs() donne : "+s1.getStringSuccesseurs());
 		
-	
+		System.out.println("La commande s1.getNom() donne : "+s1.getNom());
+		System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
+		System.out.println("On exécute la commande s1.removeSuccesseur(s2);");
+		System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
+		
+		
+		/*Tests sur les méthodes de la classe Graphe*/
 
+		System.out.println("La commande g.afficheSommetsGraphe() donne : "+g.afficheSommetsGraphe());
+		System.out.println("La commande g.affichePredecesseurs(s4)) donne : "+g.affichePredecesseurs(s4));	
+		
 	}
-
 }
+		

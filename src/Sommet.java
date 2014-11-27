@@ -40,10 +40,10 @@ public class Sommet {
 		/*Permet de supprimer un sommet de la liste des successeur d'un sommet donné
 		 On passe en paramètre l'instance à supprimer*/
 		/*On commence par chercher l'index du sommet s à supprimer de la liste*/
-		Integer index=listSuccesseurs.indexOf(s);
+		Integer index= this.listSuccesseurs.indexOf(s);
 		/*On supprime ensuite l'élément voulu de la liste des successeurs et sa capacité associé dans la liste des capacités*/
-		listSuccesseurs.remove(index);
-		listCapacite.remove(index);
+		this.listSuccesseurs.remove(index);
+		this.listCapacite.remove(index);
 	}
 	
 	public void removeSuccesseur(Integer index){
@@ -63,11 +63,11 @@ public class Sommet {
 		return listSuccesseurs;
 	}
 	
-	public String[] getStringSuccesseurs(){
-		/*Permet de récupérer la liste des successeurs d'un sommet donné */
-		String[] liste = new String[listSuccesseurs.size()] ;
+	public String afficherSuccesseurs(){
+		/*Permet d'afficher la liste des successeurs d'un sommet donné */
+		String liste = new String();
 		for (Integer i = 0; i < listSuccesseurs.size(); i++){
-			liste[i] = listSuccesseurs.get(i).getNom();
+			liste = liste.concat(listSuccesseurs.get(i).getNom());
 		}
 		return liste ;
 	}
