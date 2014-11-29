@@ -1,6 +1,3 @@
-
-
-
 public class Test {
 
 	/**
@@ -20,35 +17,46 @@ public class Test {
 		/*Définition des successeurs et capacités*/
 		s1.addSuccesseur(s2, 2);
 		s1.addSuccesseur(s3, 3);
-		s2.addSuccesseur(s4, 4);
-		s2.addSuccesseur(s5, 5);
+		s1.addSuccesseur(s4, 4);
+		s1.addSuccesseur(s5, 5);
 		s3.addSuccesseur(s4, 2);
 		s3.addSuccesseur(s5, 4);
 		s4.addSuccesseur(s6, 3);
 		s4.addSuccesseur(s5, 1);
 		s5.addSuccesseur(s6, 2);
 		
-		/*Instanciation du graphe*/
-		Graphe g = new Graphe(true) ;
+		/*Définition du graphe*/
+		Graphe g = new Graphe();
 		g.addSommets(s1);
 		g.addSommets(s2);
 		g.addSommets(s3);
 		g.addSommets(s4);
 		g.addSommets(s5);
-		g.addSommets(s6);
+
+
+		
+
+		
+	
 		
 		/*Tests sur les méthodes de la classe Sommet*/
 		
-		System.out.println("La commande s1.getNom() donne : "+s1.getNom());
+		/*System.out.println("La commande s1.getNom() donne : "+s1.getNom());
 		System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
-		System.out.println("On exécute la commande s1.removeSuccesseur(s2);");
+		System.out.println("La commande s1.afficherCapacites() donne : "+s1.afficherCapacites());
+		//s1.removeSuccesseur(0);
 		System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
-		
-		
-		/*Tests sur les méthodes de la classe Graphe*/
+		System.out.println("La commande s1.afficherCapacites() donne : "+s1.afficherCapacites());
+		System.out.println();	
+		System.out.println("capacite s1-s5 = "+s1.getCapacites(s5));
+		System.out.println("changement de la capacite s1-s5");
+		//s1.setCapacites(s5, 10);
+		System.out.println("capacite s1-s5 = "+s1.getCapacites(s5));
+		System.out.println();*/	
+		//System.out.print(g.afficherArrayList(s1.getSuccesseurs()));
+		System.out.println(/*"La commande s5.getPredecesseurs() donne :"*/g.affichePredecesseurs(s5));
+		//System.out.println("La commande s5.afficherSuccesseurs() donne : "+s3.afficherSuccesseurs());
 
-		System.out.println("La commande g.afficheSommetsGraphe() donne : "+g.afficheSommetsGraphe());
-		System.out.println("La commande g.affichePredecesseurs(s4)) donne : "+g.affichePredecesseurs(s4));	
 		
 	}
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.ListIterator;
 /*
  * On implémente ici la classe Sommet. Ses instances sont utilisés dans la classe Graphe.
  * Un sommet est défini par trois attributs : un nom, une liste de successeurs listSuccesseurs et une liste de capacité listCapacite.
@@ -30,7 +31,7 @@ public class Sommet {
 		listCapacite.add(1);
 	}
 	
-	public void addSuccesseur(Sommet s, Integer c){
+	public void addSuccesseur(Sommet s, int c){
 		/*Permet d'ajouter un successeur à un sommet donné et de définir la valeur de la capacité associé à l'ar ainsi formé*/
 		listSuccesseurs.add(s);
 		listCapacite.add(c);
@@ -40,17 +41,17 @@ public class Sommet {
 		/*Permet de supprimer un sommet de la liste des successeur d'un sommet donné
 		 On passe en paramètre l'instance à supprimer*/
 		/*On commence par chercher l'index du sommet s à supprimer de la liste*/
-		Integer index= this.listSuccesseurs.indexOf(s);
+		int index= this.listSuccesseurs.indexOf(s);
 		/*On supprime ensuite l'élément voulu de la liste des successeurs et sa capacité associé dans la liste des capacités*/
 		this.listSuccesseurs.remove(index);
 		this.listCapacite.remove(index);
 	}
 	
-	public void removeSuccesseur(Integer index){
+	public void removeSuccesseur(int index){
 		/*Permet de supprimer un sommet de la liste des successeur d'un sommet donné
 		 On passe en paramètre l'index du sommet à supprimer*/
-		listSuccesseurs.remove(index);
-		listCapacite.remove(index);
+		this.listSuccesseurs.remove(index);
+		this.listCapacite.remove(index);
 	}
 	
 	public String getNom(){
@@ -64,10 +65,20 @@ public class Sommet {
 	}
 	
 	public String afficherSuccesseurs(){
+		/*à remplacer avec ListIterator*/
 		/*Permet d'afficher la liste des successeurs d'un sommet donné */
 		String liste = new String();
 		for (Integer i = 0; i < listSuccesseurs.size(); i++){
 			liste = liste.concat(listSuccesseurs.get(i).getNom());
+		}
+		return liste ;
+	}
+	
+	public String afficherCapacites(){
+		/*Permet d'afficher la liste des successeurs d'un sommet donné */
+		String liste = new String();
+		for (Integer i = 0; i < listCapacite.size(); i++){
+			liste = liste.concat(listCapacite.get(i).toString());
 		}
 		return liste ;
 	}
@@ -77,29 +88,30 @@ public class Sommet {
 		return listCapacite;
 	}
 	
-	public Integer getCapacites(Integer index){
+	public int getCapacites(int index){
 		/*Permet de récupérer la capacité associé à un sommet d'index donné*/
 		return listCapacite.get(index);
 	}
 	
-	public Boolean verifSuccesseurs(String nom){
+	public Boolean verifSuccesseurs(Sommet s){
 		/*Permet de vérifier l'existence d'un successeur donné*/
-		Boolean bool = false ;
-			for (Integer i1 = 0 ; i1 < listSuccesseurs.size() && bool == false; i1++){
-				if (listSuccesseurs.get(i1).nom == nom) {
-				/*question : faudrait-il utiliser un getNom() même si on est bien dans la classe Sommet dont "nom" est un attribut ? */
-				/*faut-il utiliser equals() plutôt que == ?*/
-				bool = true ;
-				}
+		
+		Boolean estSommet = false;
+		ListIterator<Sommet> iter = this.listSuccesseurs.listIterator();
+		
+		while (iter.hasNext() && !estSommet){
+			if ((iter.next().getNom()).equals(s.getNom())){
+				estSommet = true ;
 			}
-		return bool ;
+		}
+		return estSommet;
 	}	
 	
-	public Integer getCapacites(Sommet s){
+	public int getCapacites(Sommet s){
 		/*Permet de récupérer la capacité associée à un sommet donné, on vérifie d'abort que ce sommet est bien un successeur*/
-		if(this.verifSuccesseurs(s.nom)){
-			Integer index=listSuccesseurs.indexOf(s);
-			return listCapacite.get(index);
+		if(this.verifSuccesseurs(s)){
+			int index=listSuccesseurs.indexOf(s);
+			return this.listCapacite.get(index);
 		}
 		else{
 			System.out.println("Le sommet passé en argument n'est pas un successeur, pas de capacité associée") ;
@@ -109,9 +121,9 @@ public class Sommet {
 	
 	public void setCapacites(Sommet s, Integer c){
 		/*Permet de passer la capacité associée à un sommet donné à une valeur "c", on vérifie d'abort que ce sommet est bien un successeur*/
-		if(this.verifSuccesseurs(s.nom)){
-			Integer index=listSuccesseurs.indexOf(s);
-			listCapacite.set(index, c);
+		if(this.verifSuccesseurs(s)){
+			int index=listSuccesseurs.indexOf(s);
+			this.listCapacite.set(index, c);
 		}
 		else{
 			System.out.println("Le sommet passé en argument n'est pas un successeur, pas de capacité associée") ;
