@@ -41,22 +41,22 @@ public class Test {
 		
 		/*Tests sur les méthodes de la classe Sommet*/
 		
-		/*System.out.println("La commande s1.getNom() donne : "+s1.getNom());
-		System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
-		System.out.println("La commande s1.afficherCapacites() donne : "+s1.afficherCapacites());
+		//System.out.println("La commande s1.getNom() donne : "+s1.getNom());
+		//System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
+		//System.out.println("La commande s1.afficherCapacites() donne : "+s1.afficherCapacites());
 		//s1.removeSuccesseur(0);
-		System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
-		System.out.println("La commande s1.afficherCapacites() donne : "+s1.afficherCapacites());
-		System.out.println();	
-		System.out.println("capacite s1-s5 = "+s1.getCapacites(s5));
-		System.out.println("changement de la capacite s1-s5");
+		//System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
+		//System.out.println("La commande s1.afficherCapacites() donne : "+s1.afficherCapacites());
+		//System.out.println();	
+		//System.out.println("capacite s1-s5 = "+s1.getCapacites(s5));
+		//System.out.println("changement de la capacite s1-s5");
 		//s1.setCapacites(s5, 10);
-		System.out.println("capacite s1-s5 = "+s1.getCapacites(s5));
-		System.out.println();*/	
-		//System.out.print(g.afficherArrayList(s1.getSuccesseurs()));
-		System.out.println(/*"La commande s5.getPredecesseurs() donne :"*/g.affichePredecesseurs(s5));
-		//System.out.println("La commande s5.afficherSuccesseurs() donne : "+s3.afficherSuccesseurs());
+		//System.out.println("capacite s1-s5 = "+s1.getCapacites(s5));
+		//System.out.println();*/	
+		
+		/*Tests sur les méthodes de la classe Graphe*/
 
+		////System.out.println(g.affichePredecesseurs(s6));
 		
 	}
 }

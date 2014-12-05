@@ -43,7 +43,7 @@ public class Graphe {
 		this.sommetsGraphe.remove(index);
 	}
 	
-	public void removeSuccesseur(int index){
+	public void removeSommet(int index){
 		/*Permet de supprimer un sommet d'un graphe
 		 On passe en paramètre l'index du sommet à supprimer*/
 		this.sommetsGraphe.remove(index);
@@ -53,58 +53,50 @@ public class Graphe {
 	public String afficheSommetsGraphe(){
 		/*Permet de récupérer la liste des sommets d'un graphe donné */
 		String liste = new String();
-		for (Integer i = 0; i < sommetsGraphe.size(); i++){
-			liste = liste.concat(sommetsGraphe.get(i).getNom());
+		ListIterator<Sommet> iter = this.sommetsGraphe.listIterator();
+		while(iter.hasNext()){
+			String var = iter.next().getNom()+";";
+			liste+=var;
 		}
-		return liste ;
+		return liste+"\n";
 	}
 	
+	
+	
+	
 	public ArrayList<Sommet> getPredecesseurs(Sommet s){
-		/*Permet de récupérer la liste des prédecesseurs d'un sommet donné d'un graphe
-		 *La méthode prend en argument le sommet s du graphe dont on cherche les prédecesseurs*/
+				
+		//La méthode prend en argument le sommet s du graphe dont on cherche les prédecesseurs*/
 		ArrayList<Sommet> listePredecesseurs = new ArrayList<Sommet>() ;
-		
-		ListIterator<Sommet> iterG  = sommetsGraphe.listIterator();
+		ListIterator<Sommet> iterG  = this.sommetsGraphe.listIterator();
 		
 		while(iterG.hasNext()){
 			/*On commence par parcourir chaque sommet du graphe*/
-			Sommet varS = iterG.next();
-			System.out.println("Sommet du graphe étudié :"+varS.getNom());
-			ListIterator<Sommet> iterVarS  = varS.getSuccesseurs().listIterator();
+			Sommet sommetEtudie = iterG.next();
+			ListIterator<Sommet> sommetEtudieSucesseurs  = sommetEtudie.getSuccesseurs().listIterator();
 
-			while(iterVarS.hasNext()){
-				Sommet varS2 = iterVarS.next();
-				System.out.println("Sucesseur en cours d'étude de la liste des successeurs du sommet du graphe étudié :"+varS2.getNom());
-				System.out.println("La liste des prédecesseurs est acutellement : interface nécessaire !!! ");
-				/*On parcourt ensuite la liste des successeurs*/
-				if(varS2.verifSuccesseurs(s)){
-					listePredecesseurs.add(varS2);
-					//System.out.println(varS2.verifSuccesseurs(s));
+			/*On étudie ensuite les successeurs de ce sommet pour voir si on y trouve s5*/
+			while(sommetEtudieSucesseurs.hasNext()){
+				Sommet successeurEtudie = sommetEtudieSucesseurs.next();
+				if (successeurEtudie.getNom().equals(s.getNom())){
+					listePredecesseurs.add(sommetEtudie);
 				}
 			}
 		}
-		//System.out.println(listePredecesseurs.size());
 		return listePredecesseurs;
-
 	}
 		
 	public String affichePredecesseurs(Sommet s){
-		String p = new String();
-		ListIterator<Sommet> iter = this.getPredecesseurs(s).listIterator();
+		//Permet d'afficher la liste des prédécesseurs récupérée grâce à la méthode getPredecesseurs(Sommet s)
+		//On commence par récupérer la liste des prédécesseurs :
+		ArrayList<Sommet> listePredecesseurs = this.getPredecesseurs(s);
+		String liste = new String();
+		ListIterator<Sommet> iter = listePredecesseurs.listIterator();
 		
 		while(iter.hasNext()){
-			System.out.print(iter.next().getNom());
-			//p.concat(iter.next().getNom());
+			String var = iter.next().getNom()+";";
+			liste+=var;
 		}
-		return p;
+		return liste+"\n";
 	}
-		
-	public String afficherArrayList(ArrayList<Sommet> Liste){
-		ListIterator<Sommet> iter = Liste.listIterator();
-		String s = new String();
-		while(iter.hasNext()){
-			s+=iter.next().getNom();
-		}
-	return(s);
-	}	
 }

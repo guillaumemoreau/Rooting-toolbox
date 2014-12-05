@@ -64,25 +64,6 @@ public class Sommet {
 		return listSuccesseurs;
 	}
 	
-	public String afficherSuccesseurs(){
-		/*à remplacer avec ListIterator*/
-		/*Permet d'afficher la liste des successeurs d'un sommet donné */
-		String liste = new String();
-		for (Integer i = 0; i < listSuccesseurs.size(); i++){
-			liste = liste.concat(listSuccesseurs.get(i).getNom());
-		}
-		return liste ;
-	}
-	
-	public String afficherCapacites(){
-		/*Permet d'afficher la liste des successeurs d'un sommet donné */
-		String liste = new String();
-		for (Integer i = 0; i < listCapacite.size(); i++){
-			liste = liste.concat(listCapacite.get(i).toString());
-		}
-		return liste ;
-	}
-	
 	public ArrayList<Integer> getCapacites(){
 		/*Permet de récupérer la liste des capacités des successeurs d'un sommet donné*/
 		return listCapacite;
@@ -92,20 +73,6 @@ public class Sommet {
 		/*Permet de récupérer la capacité associé à un sommet d'index donné*/
 		return listCapacite.get(index);
 	}
-	
-	public Boolean verifSuccesseurs(Sommet s){
-		/*Permet de vérifier l'existence d'un successeur donné*/
-		
-		Boolean estSommet = false;
-		ListIterator<Sommet> iter = this.listSuccesseurs.listIterator();
-		
-		while (iter.hasNext() && !estSommet){
-			if ((iter.next().getNom()).equals(s.getNom())){
-				estSommet = true ;
-			}
-		}
-		return estSommet;
-	}	
 	
 	public int getCapacites(Sommet s){
 		/*Permet de récupérer la capacité associée à un sommet donné, on vérifie d'abort que ce sommet est bien un successeur*/
@@ -130,5 +97,43 @@ public class Sommet {
 		}
 		
 	}
+	
+	public String afficherSuccesseurs(){
+		/*Permet d'afficher la liste des successeurs d'un sommet donné */
+		String liste = new String();
+		ListIterator<Sommet> iter = this.listSuccesseurs.listIterator();
+		while(iter.hasNext()){
+			String var = iter.next().getNom()+";";
+			liste+=var;
+		}
+		return liste+"\n";
+	}
+	
+
+	public String afficherCapacites(){
+		/*Permet de récupérer la liste des capacités associés aux successeurs d'un sommet donné*/
+		String liste = new String();
+		ListIterator<Integer> iter = this.listCapacite.listIterator();
+		while(iter.hasNext()){
+			String var = iter.next().toString()+";";
+			liste+=var;
+		}
+		return liste+"\n";
+
+	}
+	
+	public Boolean verifSuccesseurs(Sommet s){
+		/*Permet de vérifier que s est un successeur du sommet auquel on applique la méthode*/
+		
+		Boolean estSommet = false;
+		ListIterator<Sommet> iter = this.listSuccesseurs.listIterator();
+		
+		while (iter.hasNext() && !estSommet){
+			if ((iter.next().getNom()).equals(s.getNom())){
+				estSommet = true ;
+			}
+		}
+		return estSommet;
+	}	
 	
 }
