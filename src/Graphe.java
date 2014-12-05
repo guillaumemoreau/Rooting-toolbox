@@ -73,14 +73,8 @@ public class Graphe {
 		while(iterG.hasNext()){
 			/*On commence par parcourir chaque sommet du graphe*/
 			Sommet sommetEtudie = iterG.next();
-			ListIterator<Sommet> sommetEtudieSucesseurs  = sommetEtudie.getSuccesseurs().listIterator();
-
-			/*On étudie ensuite les successeurs de ce sommet pour voir si on y trouve s5*/
-			while(sommetEtudieSucesseurs.hasNext()){
-				Sommet successeurEtudie = sommetEtudieSucesseurs.next();
-				if (successeurEtudie.getNom().equals(s.getNom())){
-					listePredecesseurs.add(sommetEtudie);
-				}
+			if (sommetEtudie.verifSuccesseurs(s)){
+				listePredecesseurs.add(sommetEtudie);
 			}
 		}
 		return listePredecesseurs;
