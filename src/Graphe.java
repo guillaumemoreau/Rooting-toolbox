@@ -35,9 +35,37 @@ public class Graphe {
 		return sommetsGraphe;
 	}
 	
-	public Boolean estOriente(){
-		/*Permet de vérifier si un graphe est orienté*/
-		return oriente;
+	public Sommet getSommet(String nomSommet){
+		/*Permet de récupérer un sommet d'un graphe selon son nom*/
+		Sommet recherche = null;
+		ListIterator<Sommet> iter = this.sommetsGraphe.listIterator();
+		
+		while (iter.hasNext() && recherche == null){
+			Sommet varS = iter.next();
+			if ((varS.getNom()).equals(nomSommet)){
+				recherche = varS ;
+			}
+		}
+		return recherche;
+	}
+	
+	public Sommet getSommet(int i){
+		/*Permet de récupérer un sommet d'indice donné dans le graphe*/
+			return this.getSommets().get(i);
+		}
+	
+	public int getNbSommets(){
+		/*Permet de récupérer le nombre de sommets du graphe*/
+			return this.getSommets().size();
+
+	}
+	
+	public String[] getListesommets(){
+		String[] liste = new String[sommetsGraphe.size()];
+		for (int i = 0; i < sommetsGraphe.size(); i++) {
+			liste[i] = sommetsGraphe.get(i).getNom();
+		}
+		return liste;
 	}
 	
 	public void addSommet(Sommet s){
@@ -101,25 +129,8 @@ public class Graphe {
 		return liste+"\n";
 	}
 
-	
-	/*public Sommet getSommet(String nomSommet){
-	//à écrire
-
+	public int indexOf(Sommet s) {
+		return this.getSommets().indexOf(s);
 	}
-	
-	public Sommet getSommet(i){
-	//à écrire
-
-	}
-	
-	public int getNbSommets(){
-	//à écrire
-
-	}
-	
-	public int indexOf(Sommetsucc){
-		//à écrire
-}
-	*/
 	
 }

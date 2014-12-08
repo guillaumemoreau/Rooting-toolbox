@@ -27,36 +27,43 @@ public class Test {
 		
 		/*Définition du graphe*/
 		Graphe g = new Graphe();
-		g.addSommets(s1);
-		g.addSommets(s2);
-		g.addSommets(s3);
-		g.addSommets(s4);
-		g.addSommets(s5);
-
-
-		
-
-		
+		g.addSommet(s1);
+		g.addSommet(s2);
+		g.addSommet(s3);
+		g.addSommet(s4);
+		g.addSommet(s5);
+		g.addSommet(s6);
 	
 		
 		/*Tests sur les méthodes de la classe Sommet*/
 		
-		//System.out.println("La commande s1.getNom() donne : "+s1.getNom());
-		//System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
-		//System.out.println("La commande s1.afficherCapacites() donne : "+s1.afficherCapacites());
-		//s1.removeSuccesseur(0);
-		//System.out.println("La commande s1.afficherSuccesseurs() donne : "+s1.afficherSuccesseurs());
-		//System.out.println("La commande s1.afficherCapacites() donne : "+s1.afficherCapacites());
-		//System.out.println();	
-		//System.out.println("capacite s1-s5 = "+s1.getCapacites(s5));
-		//System.out.println("changement de la capacite s1-s5");
-		//s1.setCapacites(s5, 10);
-		//System.out.println("capacite s1-s5 = "+s1.getCapacites(s5));
-		//System.out.println();*/	
+		//System.out.println(s1.getNom());
+		//System.out.println(s1.afficherSuccesseurs());
+		/*System.out.println(s1.afficherCapacites());
+		s1.removeSuccesseur(0);
+		System.out.println(s1.afficherCapacites());*/
+		/*System.out.println(s1.getCapacites(s5));
+		s1.setCapacites(s5, 10);
+		//System.out.println(+s1.getCapacites(s5));*/
+		//System.out.println(s1.getNbSucc());
+		//System.out.println(s3.getNbSucc());
+		//System.out.println(s1.getSucc(2).getNom());
+
+
+
 		
 		/*Tests sur les méthodes de la classe Graphe*/
 
-		////System.out.println(g.affichePredecesseurs(s6));
+		//System.out.println(g.affichePredecesseurs(s5));//
+		//System.out.println(g.getSommet("s4").getNom());
+		//System.out.println(g.getSommet(0).getNom());
+		//System.out.println(g.getNbSommets());
+		//System.out.println(g.indexOf(s3));
+		System.out.println(g.getListesommets());
+
+
+
+
 		
 	}
 }

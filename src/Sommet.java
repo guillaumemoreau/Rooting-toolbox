@@ -45,8 +45,10 @@ public class Sommet {
 		return this.listSuccesseurs;
 	}
 	
-	//NE FAUDRAIT IL PAS AJOUTER UNE METHODE getSuccesseurs(Index i) et getSuccesseurs(Sommet s) ?
-	
+	public Sommet getSucc(int i){
+		return this.getSuccesseurs().get(i);
+	}
+		
 	public ArrayList<Integer> getFlux(){
 		/*Permet de récupérer la liste des capacités des successeurs d'un sommet donné*/
 		return this.listFlux;
@@ -91,6 +93,10 @@ public class Sommet {
 		}
 	}	
 	
+	public int getNbSucc(){
+		return this.listSuccesseurs.size();
+	}
+	
 	public void addSuccesseur(Sommet s){
 		/*Permet d'ajouter un successeur à un sommet donné
 		  Par défaut la capacité par défaut associé à l'arc ainsi formé est 1*/
@@ -132,7 +138,6 @@ public class Sommet {
 		this.listCapacite.remove(index);
 	}
 	
-
 	public void setFlux(Sommet s, Integer f){
 		/*Permet de passer le flux associée à un sommet donné à une valeur "f", on vérifie d'abord que ce sommet est bien un successeur*/
 		if(this.verifSuccesseurs(s)){
@@ -208,11 +213,3 @@ public class Sommet {
 	
 }
 
-/*public int getNbSucc(){
-	//à écrire
-}
-
-public Sommet getSucc(j){
-	//à écrire
-}
-*/

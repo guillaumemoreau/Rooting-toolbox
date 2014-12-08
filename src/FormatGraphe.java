@@ -93,6 +93,7 @@ public class FormatGraphe {
 	 * @param fichier	nom du fichier
 	 * @throws IOException	En cas d'erreur dans la lecteure du fichier.
 	 */
+	@SuppressWarnings({ "resource", "unused" })
 	public FormatGraphe(File fichier) throws IOException{
 		// Initialisation de la lecture
 		FileReader read = new FileReader(fichier);
@@ -105,7 +106,7 @@ public class FormatGraphe {
 			ligne = in.readLine();
 			c = ligne.charAt(0);
 			if(ligne == null){
-				throw new IOException("Format de fichier erron�.\n" +
+				throw new IOException("Format de fichier erroné\n" +
 						"Pas de balise graph ou digraph");
 			}
 		}while(c!='d' && c!='g');
@@ -120,7 +121,7 @@ public class FormatGraphe {
 			oriente = true;
 		}
 		else{
-			throw new IOException("Format de fichier erron�.\n" +
+			throw new IOException("Format de fichier erroné\n" +
 					"Pas de balise graph ou digraph");
 		}
 		
@@ -287,7 +288,7 @@ public class FormatGraphe {
 									succ = new Sommet(nomSucc);
 									graphe.addSommet(succ);
 								}
-								courant.addSucc(succ,flux,capacite);
+								courant.addSuccesseur(succ,flux,capacite);
 							}
 						}
 						//Si l'operande est inconnu ne rien faire
@@ -334,7 +335,6 @@ public class FormatGraphe {
 	public String[] getListesommets(){
 		return graphe.getListesommets();
 	}
-	// A VOIR !!!!!!!!!!!
 	
 	/**
 	 * Fournit une repr�sentation du graphe sous la forme d'un tableau arc.
