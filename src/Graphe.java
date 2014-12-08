@@ -15,11 +15,21 @@ public class Graphe {
 
 	/*Méthode*/
 		
+	public Graphe(Boolean o){
+		/*constructeur*/
+		sommetsGraphe = new ArrayList<Sommet> () ;
+		oriente = o;
+	}
+	
 	public Graphe(){
 		/*constructeur*/
 		sommetsGraphe = new ArrayList<Sommet> () ;
 	}
 	
+	public boolean isOriente(){
+		return oriente;
+	}
+
 	public ArrayList<Sommet> getSommets(){
 		/*Permet de récupérer la liste des sommets d'un graphe*/
 		return sommetsGraphe;
@@ -30,7 +40,7 @@ public class Graphe {
 		return oriente;
 	}
 	
-	public void addSommets(Sommet s){
+	public void addSommet(Sommet s){
 		sommetsGraphe.add(s) ;		
 	}
 	
@@ -61,9 +71,6 @@ public class Graphe {
 		return liste+"\n";
 	}
 	
-	
-	
-	
 	public ArrayList<Sommet> getPredecesseurs(Sommet s){
 				
 		//La méthode prend en argument le sommet s du graphe dont on cherche les prédecesseurs*/
@@ -93,4 +100,26 @@ public class Graphe {
 		}
 		return liste+"\n";
 	}
+
+	
+	/*public Sommet getSommet(String nomSommet){
+	//à écrire
+
+	}
+	
+	public Sommet getSommet(i){
+	//à écrire
+
+	}
+	
+	public int getNbSommets(){
+	//à écrire
+
+	}
+	
+	public int indexOf(Sommetsucc){
+		//à écrire
+}
+	*/
+	
 }
