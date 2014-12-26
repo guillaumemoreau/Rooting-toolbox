@@ -15,18 +15,18 @@ public class Test {
 		Sommet s6 = new Sommet("s6");
 
 		/*Définition des successeurs et capacités*/
-		s1.addSuccesseur(s2, 2);
-		s1.addSuccesseur(s3, 3);
-		s1.addSuccesseur(s4, 4);
-		s1.addSuccesseur(s5, 5);
-		s3.addSuccesseur(s4, 2);
-		s3.addSuccesseur(s5, 4);
-		s4.addSuccesseur(s6, 3);
-		s4.addSuccesseur(s5, 1);
-		s5.addSuccesseur(s6, 2);
+		s1.addSuccesseur(s2, 2, 2);
+		s1.addSuccesseur(s3, 3, 4);
+		s1.addSuccesseur(s4, 4, 4);
+		s1.addSuccesseur(s5, 5, 10);
+		s3.addSuccesseur(s4, 2, 4);
+		s3.addSuccesseur(s5, 4, 6);
+		s4.addSuccesseur(s6, 3, 3);
+		s4.addSuccesseur(s5, 1, 1);
+		s5.addSuccesseur(s6, 2, 7);
 		
 		/*Définition du graphe*/
-		Graphe g = new Graphe();
+		Graphe g = new Graphe(true);
 		g.addSommet(s1);
 		g.addSommet(s2);
 		g.addSommet(s3);
@@ -60,6 +60,13 @@ public class Test {
 		//System.out.println(g.getNbSommets());
 		//System.out.println(g.indexOf(s3));
 		System.out.println(g.getListesommets());
+		
+		/*Tests sur les méthodes de la classe FormatGraphe*/
+		FormatGraphe b = new FormatGraphe(g);
+		b.ecrireGraphe("test");
+		
+
+
 
 
 

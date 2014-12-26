@@ -502,7 +502,7 @@ public class FormatGraphe {
 			for (int i = 0; i < b.graphe.getNbSommets(); i++) {
 				System.out.println(b.graphe.getSommet(i).getNom());
 			}
-			b.ecrireGraphe("graph.dot");
+			b.ecrireGraphe("graphes.dot");
 		}catch(IOException e){
 			System.err.println("erreur");
 			System.err.println(e.getMessage());
