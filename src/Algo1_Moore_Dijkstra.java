@@ -176,7 +176,7 @@ public class Algo1_Moore_Dijkstra {
 		
 		if(this.t.size()==1){//on traite le cas du dernier sommet
 			System.out.println("* Tous les sommets ont été traités sauf "+this.t.get(0).getNom()+" qui est le sommet le plus éloigné du sommet-source "+this.s.getNom()+"."+"\n"+"Le cout du trajet depuis le sommet-source est "+this.pi.get(this.graphe.indexOf(this.t.get(0)))+"\n");
-		};
+		}
 
 		/*On retourne et affiche le plus court-chemin*/
 		
