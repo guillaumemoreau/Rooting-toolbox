@@ -204,7 +204,7 @@ public class Sommet {
 		ListIterator<Sommet> iter = this.listSuccesseurs.listIterator();
 		
 		while (iter.hasNext() && !estSommet){
-			if ((iter.next().getNom()).equals(s.getNom())){
+			if (iter.next().getNom().equals(s.getNom())){
 				estSommet = true ;
 			}
 		}
