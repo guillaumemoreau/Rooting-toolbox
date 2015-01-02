@@ -42,7 +42,7 @@ public class Graphe {
 		
 		while (iter.hasNext() && recherche == null){
 			Sommet varS = iter.next();
-			if ((varS.getNom()).equals(nomSommet)){
+			if (varS.getNom().equals(nomSommet)){
 				recherche = varS ;
 			}
 		}
